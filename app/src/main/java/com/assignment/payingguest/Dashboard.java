@@ -4,9 +4,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.assignment.payingguest.adapter.HotelAdapter;
+import com.assignment.payingguest.model.HotelModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener {
 
@@ -14,6 +22,11 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     private TextView txt_display;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+
+
+    RecyclerView recyclerView;
+    List<HotelModel> hotelModelList = new ArrayList<>();
+
 
 
     @Override
@@ -27,10 +40,20 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     private void initialize(){
         txt_display = findViewById(R.id.tv_display);
         btnLogout = findViewById(R.id.btn_logout);
+
         preferences = getSharedPreferences("LoginLogout", Context.MODE_PRIVATE);
         editor = preferences.edit();
         txt_display.setText("Welcome, "+preferences.getString("user",""));
+
         btnLogout.setOnClickListener(this);
+
+
+        createHotelList();
+        recyclerView = findViewById(R.id.recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new HotelAdapter(hotelModelList, getApplicationContext()));
+
+
     }
 
 
@@ -48,4 +71,9 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 break;
         }
     }
-}
+
+    public void createHotelList() {
+
+        hotelModelList.add(new HotelModel("Lion", "5000", "5", R.drawable.ic_launcher_background));
+    }
+    }

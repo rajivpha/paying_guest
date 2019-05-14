@@ -1,5 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/test">
 
-</android.support.v7.widget.RecyclerView>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/imageView"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:padding="2dp"
+        />
+
+    <TextView
+        android:textSize="20dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/imageView"
+        android:background="@color/colorPrimary"
+        android:id="@+id/price"
+        android:layout_marginLeft="5dp"
+        android:padding="2dp"
+
+        />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/imageView"
+        android:background="@color/colorAccent"
+        android:layout_toRightOf="@id/price"
+        android:id="@+id/name"
+        android:padding="2dp"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/imageView"
+        android:background="@color/colorPrimary"
+        android:layout_toRightOf="@id/name"
+        android:id="@+id/rating"
+        android:padding="2dp"
+        android:layout_marginRight="5dp"
+        android:textSize="20dp"
+        />
+
+
+</RelativeLayout>
